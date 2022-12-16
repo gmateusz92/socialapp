@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>Homepage for users app </h1>
-{% for post in posts %}
-    <h1>{{ post.title }}</h1>
+
+
+    <div class="flex mt-5 p-10 justify-center">
+        <h2 class="text-3xl font-normal mb-2 text-gray-500">My Posts</h2>
+    </div>
+    <div class="grid grid-colds-1">
+        {% for post in posts %}
+        <!-- Card starts here-->
+        <a href="#">
+            <div class="user-container">
+                <img src="{{ profile.photo.url}}" alt="">
+                <div>{{ post.user}}</div>
+            </div>
+            <div class="rounded overflow-hidden w-[470px] h-[470px] bg-white shadow-lg">
+                <img src="{{ post.image.url}}" alt="">
+            </div>
+        </a>
+        <!-- Card ends here-->
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+<h1>{{ post.title }}</h1>
     <h2>{{ post.user }}</h2>
     <img src = "{{ post.image.url}}" alt="">
-{% endfor %}
-{% endblock %}
+    
