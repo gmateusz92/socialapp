@@ -3,9 +3,26 @@
 <h2>Edit profile formm</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
+    <div class="mb-2">
+        <label class="block text-grey-700 text-sm font-bold mb-2" for="">Firstname</label>
+        <div class="shadow apperance-none border rounded py-2 px-3 mr-10 text-grey-700">
+            {{ user_form.first_name }}
+        </div>    
+    </div>
+    <div class="mb-2">
+        <label class="block text-grey-700 text-sm font-bold mb-2" for="">Firstname</label>
+        <div class="shadow apperance-none border rounded py-2 px-3 mr-10 text-grey-700">
+            {{ user_form.first_name }}
+        </div>    
+    </div>
+    <div class="mb-2">
+        <label class="block text-grey-700 text-sm font-bold mb-2" for="">Firstname</label>
+        <div class="shadow apperance-none border rounded py-2 px-3 mr-10 text-grey-700">
+            {{ user_form.first_name }}
+        </div>    
+    </div>
     <input type="submit">
 </form>
-
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
 {% endblock %}
