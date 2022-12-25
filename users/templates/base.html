@@ -3,24 +3,31 @@
     <head>
         <link rel="stylesheet" href="{% static 'users/styles.css' %}"
     </head>
-    <nav>
-        <div>
-            <!-- website logo-->
-            <div>
-                <a class="flex" href="">
-                    <img class ="h-8 w-8" src="{% static 'users/images/instagram.png' %}" alt="">
-                    <span class="font-semibold text-lg text-gray-500">Photo app</span>
-                </a>
+    <nav class="shadow-lg">
+        <div class="px-4 mx-auto">
+            <div class="flex justify-between">
+                <!-- website logo-->
+                <div>
+                    <a class="flex" href="">
+                        <img class ="h-8 w-8 mr-2" src="{% static 'users/images/instagram.png' %}" alt="">
+                        <span class="font-semibold text-lg text-gray-500">Photo app</span>
+                    </a>
+                </div>
+                <!-- website items-->
+                <div class="space-x-1">
+                    {% if request.user.is_authenticated %}
+                    <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                    <a class="py-4 px-2 text-gray-500 font-semibold" href="">Link 1</a>
+                    </a>
+                </div>
             </div>
-            <!-- website items-->
         </div>
     </nav>
     <body>
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logoutt</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
+        
         {% block body %}
         {% endblock %}
 
