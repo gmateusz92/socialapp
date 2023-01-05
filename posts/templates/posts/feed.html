@@ -44,7 +44,29 @@
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2"> {{ post.title }}</div>
                 <p class="text-gray-700 text-base">{{ post.caption }}</p>
-            </div>    
+            </div>
+            <div class="px-5 py-5">
+                {% for comment in post.comments.all %}
+                {{ comment.body }}
+                </br>
+                {% endfor %}
+            <div class="px-5 py-5">
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        <label> Add comment</label>
+                    </div>
+                    <div>
+                        {{ comment_form.body }}
+                    </div>
+                    <div>
+                        <input type="hidden" name="post_id" id="post_id" value="{{ post.id }}">
+                    </div>
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+            </div>
         </a>
         <!-- Card ends here-->
         {% endfor %}

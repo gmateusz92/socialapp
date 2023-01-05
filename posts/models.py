@@ -20,7 +20,7 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
     created = models.DateTimeField(auto_now=True)
 
