@@ -23,6 +23,7 @@ def feed(request): #wyswietla posty wszystkich uzytkonikow
         post_id = request.POST.get('post_id')
         post = get_object_or_404(Post, id=post_id)
         new_comment.post = post
+        new_comment.save()
     else:
         comment_form = CommentForm()    
 
